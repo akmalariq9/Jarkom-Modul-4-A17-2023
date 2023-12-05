@@ -32,7 +32,7 @@ Keterangan: Bila di CPT menggunakan VLSM, maka di GNS3 menggunakan CIDR atau seb
 Gambar topologi yang lebih jelas dapat diakses pada link [berikut](https://drive.google.com/file/d/1VmJXOyEoWru1tfXISOgoJiPfE1hpbptM/view)
 
 # **Penamaan Subnetting**
-![Alt text](image-3.png)
+![Alt text](image-12.png)
 
 ![Alt text](image-2.png)
 
@@ -384,6 +384,9 @@ Berikut adalah langkah-langkah pengerjaan untuk pengerjaan praktikum dengan meto
 ## **_Subnetting_**
 Berbeda dengan metode subnetting sebelumnya. Metode ini mengelompokkan subnet dari jarak paling jauh terlebih dahulu.Pengelompokkan ini dilakukan hingga menjadi suatu pengelompokan yang secara meluruh seperti hierarchical clustering.
 
+## **__Pembuatan Tree__**
+
+![Alt text](image-14.png)
 Berikut adalah hasil dari subnetting kelompok kami:
 
 ![Alt text](image-4.png)
