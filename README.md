@@ -1,4 +1,4 @@
-# **Praktikum 3 Jaringan Komputer**
+# **Praktikum 4 Jaringan Komputer**
 <div align=justify>
 
 Berikut adalah Repository dari Kelompok A17 untuk pengerjaan Praktikum Modul 4 Jaringan Komputer. Dalam Repository ini terdapat Anggota Kelompok, Dokumentasi serta Penjelasan tiap soal, Screenshot Output, dan Kendala yang dialami.
@@ -30,6 +30,13 @@ Keterangan: Bila di CPT menggunakan VLSM, maka di GNS3 menggunakan CIDR atau seb
 
 - Pembagian IP dan routing harus SE-EFISIEN MUNGKIN.
 Gambar topologi yang lebih jelas dapat diakses pada link [berikut](https://drive.google.com/file/d/1VmJXOyEoWru1tfXISOgoJiPfE1hpbptM/view)
+
+# **Penamaan Subnetting**
+![Alt text](image-3.png)
+
+![Alt text](image-2.png)
+
+
 
 
 # **VLSM**
@@ -370,7 +377,67 @@ Untuk mengetahui hasil dari _routing_ yang sudah dilakukan, maka dilakukan testi
 ![TurkRohr](https://cdn.discordapp.com/attachments/1150687865420906517/1181585433633751100/image.png?ex=65819830&is=656f2330&hm=9b79bf58cbab8864d3f220613d4029202a926fc97684d6095b3d775a1626ffdb&)
 
 # **CIDR**
-Coming Soon.
+Berikut adalah langkah-langkah pengerjaan untuk pengerjaan praktikum dengan metode CIDR.
+
+![Alt text](image-5.png)
+
+## **_Subnetting_**
+Berbeda dengan metode subnetting sebelumnya. Metode ini mengelompokkan subnet dari jarak paling jauh terlebih dahulu.Pengelompokkan ini dilakukan hingga menjadi suatu pengelompokan yang secara meluruh seperti hierarchical clustering.
+
+Berikut adalah hasil dari subnetting kelompok kami:
+
+![Alt text](image-4.png)
+
+![Alt text](image.png)
+
+![Alt text](image-1.png)
+
+
+Selanjutnya, kita dapat melakukan konfigurasi interface pada setiap client, router, dan server. Sebagai contoh, kita melakukan konfigurasi untuk router Aura untuk FastEthernet 0/1.
+
+![Alt text](image-6.png)
+
+Disini kita dapat langsung memasukkan konfigurasi IP dan Subnet Mask yang sudah ditetapkan sebelumnya. Hal ini dilakukan untuk semua-nya berdasarkan jalur yang sudah ditetapkan dari topologi yang tertera diatas.
+
+
+## **__Routing__**
+Proses routing dapat dilakukan dengan mengkonfigurasi :
+- Router - bagian Routing
+- Server dan Client - bagian Desktop -> IP Configuration.
+
+Sebagai contoh untuk Routing IP Router Flamme.
+
+Pada Router Flamme, kita perlu mengkonfigurasi kelompok-kelompok yang perlu di gateaway dari router ini menuju router pusat (Aura).
+
+![Alt text](image-7.png)
+
+Terlihat bahwa terdapat 2 kelompok subnet yang perlu dikonfigurasi pada router ini, yaitu subnet A6 dan A1, karena kelompok subnet tersebut dipisahkan oleh sebuah router.
+
+Hal ini dapat dilakukan di konfigurasi Flamme.
+
+![Alt text](image-8.png)
+
+- 192.177.0.0/21 via 192.177.8.2 (Flamme -> A6)
+- 192.177.20.16/29 via 192.177.20.2 (Flamme -> A1)
+- 0.0.0.0/0 via 192.177.32.1 (Flamme -> Frieren)
+
+Setelah ini, kita juga perlu mengkonfigurasi subnet-subnet agar terhubung dengan router Flamme.
+
+- Pada Client SchwerMountain
+Kita perlu menentukan gateway yang dapat terhubung ke router Flamme, yaitu melalui router Himmel.
+
+![Alt text](image-9.png)
+
+
+Dan pada Himmel, kita juga harus menerukan paket ini kepada router Flamme dengan konfigurasi secara berikut.
+
+![Alt text](image-10.png)
+
+Dengan konfigurasi yang telah dilakukan, paket dapat dikirim secara vice-versa.
+
+![Alt text](image-11.png)
+
+Cara ini dilanjutkan hingga semua router, client, dan server terhubung.
 
 # **Kendala Saat Pengerjaan**
 
