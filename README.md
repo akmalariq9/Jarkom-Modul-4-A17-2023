@@ -32,12 +32,14 @@ Keterangan: Bila di CPT menggunakan VLSM, maka di GNS3 menggunakan CIDR atau seb
 Gambar topologi yang lebih jelas dapat diakses pada link [berikut](https://drive.google.com/file/d/1VmJXOyEoWru1tfXISOgoJiPfE1hpbptM/view)
 
 # **Penamaan Subnetting**
-![Alt text](image-12.png)
 
-![Alt text](image-2.png)
+Sebelum mengerjakan dengan VLSM dan CIDR, maka langkah pertama yang dilakukan adalah membagi _node_ dari topologi yang ada menjadi beberapa bagian. Berikut adalah pembagian topologi dari kelompok kami:
 
+![TopologiGrouping](https://media.discordapp.net/attachments/1150687865420906517/1181636988693131394/image-12.png?ex=6581c833&is=656f5333&hm=b6292e5835858c226bcfa383e8fcbe189966c56649419c14af75686031cf571b&=&format=webp&quality=lossless&width=1070&height=701)
 
+Setelah dibagi, maka dapat dikelompokkan menjadi 4 kolom, yaitu nama _subnet_, rute, jumlah IP, dan _netmask_. Untuk detail dapat dilihat pada gambar berikut:
 
+![DetailSubnet](https://media.discordapp.net/attachments/1150687865420906517/1181635755462905897/image-2.png?ex=6581c70d&is=656f520d&hm=e016d073dbd036ca5ec8399189e2df6d04bd35d219d18f96da7a75ef859145f1&=&format=webp&quality=lossless&width=956&height=701)
 
 # **VLSM**
 Berikut adalah langkah-langkah pengerjaan untuk pengerjaan praktikum dengan metode VLSM.
@@ -57,7 +59,7 @@ Setelah melakukan _subnetting_, langkah yang digunakan adalah membuat _tree_. _T
 ![Tree](https://cdn.discordapp.com/attachments/1150687865420906517/1181510982762246144/VLSM_Tree_A17.jpg?ex=658152d9&is=656eddd9&hm=209de434d004bd80b13ac914d938c0a9ff6c6c53312966cf2ac550e485c074f1&)
 
 ## **_Routing_**
-Langkah terakhir untuk menyelesaikan soal dengan metode VLSM adalah melakukan _routing_. Secara singkat, _routing_ adalah cara untuk menghubungkan setiap router sehingga setiap _client_ dapat terhubung dengan _client_ yang lain. Berikut adalah _config_ dari seluruh _router_ untuk _routing_ dengan GNS3:
+Langkah terakhir untuk menyelesaikan soal dengan metode VLSM adalah melakukan _routing_. Secara singkat, _routing_ adalah cara untuk menghubungkan setiap _router_ sehingga setiap _client_ dapat terhubung dengan _client_ yang lain. Berikut adalah _config_ dari seluruh _router_ untuk _routing_ dengan GNS3:
 
 - **Aura**
 ```bash
@@ -379,68 +381,66 @@ Untuk mengetahui hasil dari _routing_ yang sudah dilakukan, maka dilakukan testi
 # **CIDR**
 Berikut adalah langkah-langkah pengerjaan untuk pengerjaan praktikum dengan metode CIDR.
 
-![Alt text](image-5.png)
+![CIDR-CPT](https://media.discordapp.net/attachments/1150687865420906517/1181635756943491103/image-5.png?ex=6581c70e&is=656f520e&hm=f65848c33ab80d19ce17c2c612590c56a41abfeb6b20ece6b325b0a80a5d2cb8&=&format=webp&quality=lossless&width=1233&height=701)
 
 ## **_Subnetting_**
 Berbeda dengan metode subnetting sebelumnya. Metode ini mengelompokkan subnet dari jarak paling jauh terlebih dahulu.Pengelompokkan ini dilakukan hingga menjadi suatu pengelompokan yang secara meluruh seperti hierarchical clustering.
 
 ## **__Pembuatan Tree__**
 
-![Alt text](image-14.png)
-Berikut adalah hasil dari subnetting kelompok kami:
+Berikut adalah hasil dari subnetting serta pembagian tree dari kelompok kami:
 
-![Alt text](image-4.png)
+![Tree](https://media.discordapp.net/attachments/1150687865420906517/1181636989284519976/image-14.png?ex=6581c833&is=656f5333&hm=35ad2bb8cbae1c67c4437fb06ef2f587a85d7370f057c657d74d06176eac537c&=&format=webp&quality=lossless&width=1246&height=701)
 
-![Alt text](image.png)
+![Grouping](https://cdn.discordapp.com/attachments/1150687865420906517/1181635756339507252/image-4.png?ex=6581c70e&is=656f520e&hm=bef61b25b42a0307644292e79a05979dd5943514760c30acd2d380329c3f1804&)
 
-![Alt text](image-1.png)
+![Subnet1](https://cdn.discordapp.com/attachments/1150687865420906517/1181635754842149016/image.png?ex=6581c70d&is=656f520d&hm=88340ab5958dcc7689ae934da5215506c8907ad9193fe8449ee8d5ec309e37f4&)
 
+![Subnet2](https://cdn.discordapp.com/attachments/1150687865420906517/1181635755169296404/image-1.png?ex=6581c70d&is=656f520d&hm=5b17a972eb4ff846f0689c1c5d76101c7b6a0b6ec81fdf60976aece63ebf5720&)
 
-Selanjutnya, kita dapat melakukan konfigurasi interface pada setiap client, router, dan server. Sebagai contoh, kita melakukan konfigurasi untuk router Aura untuk FastEthernet 0/1.
+Selanjutnya, kita dapat melakukan konfigurasi _interface_ pada setiap _client_, _router_, dan _server_. Sebagai contoh, kita melakukan konfigurasi untuk _router_ Aura untuk FastEthernet 0/1.
 
-![Alt text](image-6.png)
+![AuraConf](https://media.discordapp.net/attachments/1150687865420906517/1181635757425840250/image-6.png?ex=6581c70e&is=656f520e&hm=f941c73e0c186dd3e55c824eb7de4b39fee901da682ca6b5a794e42a01771085&=&format=webp&quality=lossless&width=1056&height=397)
 
 Disini kita dapat langsung memasukkan konfigurasi IP dan Subnet Mask yang sudah ditetapkan sebelumnya. Hal ini dilakukan untuk semua-nya berdasarkan jalur yang sudah ditetapkan dari topologi yang tertera diatas.
 
-
-## **__Routing__**
+## **_Routing_**
 Proses routing dapat dilakukan dengan mengkonfigurasi :
-- Router - bagian Routing
+- _router_ - bagian Routing
 - Server dan Client - bagian Desktop -> IP Configuration.
 
-Sebagai contoh untuk Routing IP Router Flamme.
+Sebagai contoh untuk Routing IP _router_ Flamme.
 
-Pada Router Flamme, kita perlu mengkonfigurasi kelompok-kelompok yang perlu di gateaway dari router ini menuju router pusat (Aura).
+Pada _router_ Flamme, kita perlu mengkonfigurasi kelompok-kelompok yang perlu di gateaway dari _router_ ini menuju _router_ pusat (Aura).
 
-![Alt text](image-7.png)
+![Routing1](https://cdn.discordapp.com/attachments/1150687865420906517/1181635757857849354/image-7.png?ex=6581c70e&is=656f520e&hm=6a1a9fdfde53afb9298eaf80a1f7eadd28b54229859f39c5555ed9442d691e5f&)
 
-Terlihat bahwa terdapat 2 kelompok subnet yang perlu dikonfigurasi pada router ini, yaitu subnet A6 dan A1, karena kelompok subnet tersebut dipisahkan oleh sebuah router.
+Terlihat bahwa terdapat 2 kelompok subnet yang perlu dikonfigurasi pada _router_ ini, yaitu subnet A6 dan A1, karena kelompok subnet tersebut dipisahkan oleh sebuah _router_.
 
 Hal ini dapat dilakukan di konfigurasi Flamme.
 
-![Alt text](image-8.png)
+![Flamme Conf](https://cdn.discordapp.com/attachments/1150687865420906517/1181635758218563594/image-8.png?ex=6581c70e&is=656f520e&hm=79f446785ded60526ea526397218c096079468e2f841b5bf166572b17e554242&)
 
 - 192.177.0.0/21 via 192.177.8.2 (Flamme -> A6)
 - 192.177.20.16/29 via 192.177.20.2 (Flamme -> A1)
 - 0.0.0.0/0 via 192.177.32.1 (Flamme -> Frieren)
 
-Setelah ini, kita juga perlu mengkonfigurasi subnet-subnet agar terhubung dengan router Flamme.
+Setelah ini, kita juga perlu mengkonfigurasi subnet-subnet agar terhubung dengan _router_ Flamme.
 
 - Pada Client SchwerMountain
-Kita perlu menentukan gateway yang dapat terhubung ke router Flamme, yaitu melalui router Himmel.
+Kita perlu menentukan gateway yang dapat terhubung ke _router_ Flamme, yaitu melalui _router_ Himmel.
 
-![Alt text](image-9.png)
+![Himmel Conf](https://cdn.discordapp.com/attachments/1150687865420906517/1181635758637990028/image-9.png?ex=6581c70e&is=656f520e&hm=c4d5126c6555e1ae047053d05d4feddeab3275193669f5fbf692c4073790a30b&)
 
+Dan pada Himmel, kita juga harus meneruskan paket ini kepada _router_ Flamme dengan konfigurasi secara berikut.
 
-Dan pada Himmel, kita juga harus menerukan paket ini kepada router Flamme dengan konfigurasi secara berikut.
-
-![Alt text](image-10.png)
+![Forward Flamme](https://cdn.discordapp.com/attachments/1150687865420906517/1181636987812327465/image-10.png?ex=6581c833&is=656f5333&hm=d9f2dc71a5e386d376c295c84aead04718a18445acb91644a6961f9a3449a58f&)
 
 Dengan konfigurasi yang telah dilakukan, paket dapat dikirim secara vice-versa.
 
-![Alt text](image-11.png)
+![Successfull Vice Fersa](https://cdn.discordapp.com/attachments/1150687865420906517/1181636988143669348/image-11.png?ex=6581c833&is=656f5333&hm=a35e8fa408142714c6bad00b3f1c126d5018f0b1183a219394a5439133be95ab&)
 
-Cara ini dilanjutkan hingga semua router, client, dan server terhubung.
+Cara ini dilanjutkan hingga semua _router_, client, dan server terhubung.
 
 # **Kendala Saat Pengerjaan**
 
